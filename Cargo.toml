@@ -1,0 +1,8 @@
+[package]
+name = "qpdb"
+version = "0.1.0"
+edition = "2024"
+authors = ["Mai Hoang Anh"]
+
+[dependencies]
+log = "0.4.27"

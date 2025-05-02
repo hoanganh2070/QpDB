@@ -1,0 +1,4 @@
+{
+    "workbench.colorTheme": "Dracula For Rust Theme",
+    "rust-analyzer.cargo.buildScripts.enable": true
+}
