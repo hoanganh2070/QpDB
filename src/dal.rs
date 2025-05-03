@@ -29,7 +29,7 @@ fn new_dal(path: String, page_size: i32) -> DataAccessLayer {
 
 impl DataAccessLayer {
     pub fn close(&mut self) -> io::Result<()> {
-        if let Some(file) = self.file.take() {
+        if let Some(file) = self.file.as_mut() {
             // Nếu tệp tồn tại, chúng ta sẽ "lấy" file ra và đóng nó
             match file.sync_all() {
                 Ok(_) => {
@@ -58,7 +58,7 @@ impl DataAccessLayer {
 
         let offsest = (page_num * self.page_size) as u64;
 
-        let mut reader = BufReader::new(self.file.as_ref().expect("File is not open"));
+        let mut reader = BufReader::new(self.file.as_mut().expect("File is not open"));
 
         reader.seek(SeekFrom::Start(offsest))?;
 
